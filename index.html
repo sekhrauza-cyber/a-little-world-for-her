@@ -3,386 +3,943 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#4b1729">
 <title>A Little World for Her ♡</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
 
 <style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+:root {
+--wine:#4b1729;
+--berry:#762b45;
+--rose:#c77b91;
+--pink:#f3dce2;
+--cream:#fffaf5;
+--ink:#38232b;
+--muted:#866d75;
 }
+
+* {box-sizing:border-box}
+
+html {scroll-behavior:smooth}
 
 body {
-  background: #4a1728;
-  color: #f9e9e9;
-  font-family: 'Poppins', sans-serif;
-  overflow-x: hidden;
+margin:0;
+background:var(--cream);
+color:var(--ink);
+font-family:"DM Sans",sans-serif;
+overflow-x:hidden;
 }
+
+button {font:inherit}
 
 .hero {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 30px 20px;
-  position: relative;
-  overflow: hidden;
+min-height:100svh;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+padding:70px 22px;
+position:relative;
+overflow:hidden;
+background:
+radial-gradient(circle at 15% 15%,#f7e6e9 0,transparent 34%),
+radial-gradient(circle at 85% 80%,#ead0d8 0,transparent 35%),
+linear-gradient(145deg,#fffaf5,#f5e4e7);
 }
 
-.hero::before {
-  content: "";
-  position: absolute;
-  width: 300px;
-  height: 300px;
-  background: #a84f70;
-  filter: blur(110px);
-  opacity: .35;
-  border-radius: 50%;
-  top: 10%;
-  left: 5%;
+.hero:before,.hero:after {
+content:"✦";
+position:absolute;
+color:#c77b9180;
+font-size:36px;
+animation:float 5s ease-in-out infinite;
 }
 
-.eyebrow {
-  letter-spacing: 5px;
-  font-size: 10px;
-  color: #eab8c9;
-  animation: fade 2s;
+.hero:before {top:13%;left:12%}
+.hero:after {bottom:17%;right:13%;animation-delay:1.5s}
+
+.hero-inner {
+max-width:700px;
+position:relative;
+z-index:1;
 }
+
+.eyebrow,.chapter {
+letter-spacing:.22em;
+text-transform:uppercase;
+font-size:10px;
+font-weight:700;
+color:var(--berry);
+}
+
+h1,h2,h3 {font-family:"Playfair Display",serif}
 
 h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(45px, 12vw, 82px);
-  font-weight: 400;
-  line-height: 1.1;
-  margin: 25px 0;
-  animation: rise 1.5s ease;
+font-size:clamp(48px,12vw,88px);
+line-height:.98;
+color:var(--wine);
+font-weight:600;
+margin:24px 0 18px;
 }
 
-h1 em {
-  color: #e6a6bd;
+.hero p {
+color:var(--muted);
+font-size:14px;
+letter-spacing:.08em;
 }
 
-.subtitle {
-  font-size: 12px;
-  letter-spacing: 2px;
-  color: #f0cbd6;
-  margin-bottom: 35px;
+.btn {
+display:inline-block;
+border:0;
+border-radius:999px;
+background:var(--wine);
+color:white;
+padding:15px 25px;
+text-decoration:none;
+font-size:11px;
+font-weight:700;
+letter-spacing:.13em;
+margin-top:24px;
+cursor:pointer;
+box-shadow:0 10px 25px #4b172926;
+transition:.2s;
 }
 
-.enter {
-  background: #f4dce3;
-  color: #541c32;
-  border: none;
-  padding: 16px 35px;
-  border-radius: 40px;
-  font-size: 11px;
-  letter-spacing: 2px;
-  cursor: pointer;
-  transition: .3s;
+.btn:active {transform:scale(.97)}
+
+main {
+max-width:1000px;
+margin:auto;
+padding:0 20px;
 }
 
-.enter:hover {
-  transform: scale(1.08);
-  background: white;
-}
+section {padding:82px 0}
 
-.heart {
-  position: absolute;
-  color: #edb4c8;
-  animation: float 6s infinite ease-in-out;
-  opacity: .6;
-  pointer-events: none;
-}
-
-@keyframes float {
-  0%,100% { transform: translateY(0) rotate(0); }
-  50% { transform: translateY(-30px) rotate(15deg); }
-}
-
-@keyframes rise {
-  from { opacity: 0; transform: translateY(35px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes fade {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-section {
-  padding: 85px 22px;
-  text-align: center;
-}
-
-.light {
-  background: #f8e9e9;
-  color: #4a1728;
-}
-
-.section-label {
-  font-size: 10px;
-  letter-spacing: 4px;
-  color: #b56b85;
-  margin-bottom: 15px;
+.section-head {
+text-align:center;
+max-width:600px;
+margin:0 auto 34px;
 }
 
 h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: 42px;
-  font-weight: 400;
-  margin-bottom: 20px;
+font-size:clamp(35px,8vw,55px);
+line-height:1.05;
+color:var(--wine);
+margin:13px 0;
 }
 
-.description {
-  font-size: 13px;
-  line-height: 2;
-  max-width: 450px;
-  margin: auto;
+.section-head p {
+font-size:14px;
+line-height:1.9;
+color:var(--muted);
 }
+
+.note {
+background:#f7e9ec;
+border:1px solid #ecd4dc;
+border-radius:22px;
+padding:26px;
+text-align:center;
+max-width:700px;
+margin:auto;
+}
+
+.note h3 {
+font-size:29px;
+color:var(--berry);
+margin:0 0 12px;
+}
+
+.note p {
+line-height:1.9;
+font-size:14px;
+margin:0;
+color:#735761;
+}
+
+/* PHOTO GALLERY */
 
 .gallery {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 15px;
-  max-width: 500px;
-  margin: 35px auto;
+display:grid;
+grid-template-columns:repeat(2,minmax(0,1fr));
+gap:18px;
+align-items:start;
 }
 
-.photo {
-  background: #e7c3ce;
-  color: #67283e;
-  min-height: 190px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 15px;
-  font-family: 'Playfair Display', serif;
-  font-size: 17px;
-  border: 8px solid white;
-  box-shadow: 0 5px 15px #4a172822;
-  transform: rotate(-2deg);
+.polaroid {
+background:white;
+padding:9px 9px 17px;
+box-shadow:0 8px 24px #4b17291a;
+border-radius:3px;
+transform:rotate(var(--tilt));
+transition:transform .25s,box-shadow .25s;
 }
 
-.photo:nth-child(even) {
-  transform: rotate(3deg);
-  margin-top: 25px;
+.polaroid:nth-child(4n+1) {--tilt:-2deg}
+.polaroid:nth-child(4n+2) {--tilt:2deg}
+.polaroid:nth-child(4n+3) {--tilt:1deg}
+.polaroid:nth-child(4n) {--tilt:-1.5deg}
+
+.polaroid:active {
+transform:rotate(0) scale(1.025);
+box-shadow:0 14px 30px #4b172930;
 }
 
-.quiz-box {
-  max-width: 450px;
-  margin: 30px auto;
-  padding: 25px;
-  border: 1px solid #c98ca3;
-  border-radius: 15px;
+.polaroid img {
+width:100%;
+height:190px;
+object-fit:cover;
+display:block;
+background:#f3dce2;
 }
 
-.quiz-box p {
-  margin-bottom: 20px;
-  font-family: 'Playfair Display', serif;
-  font-size: 23px;
+.caption {
+text-align:center;
+font-family:"Playfair Display",serif;
+color:var(--berry);
+font-size:16px;
+padding-top:12px;
 }
 
-.quiz-box button {
-  display: block;
-  width: 100%;
-  padding: 13px;
-  margin: 10px 0;
-  border: 1px solid #d9a9b9;
-  background: transparent;
-  color: inherit;
-  border-radius: 30px;
-  cursor: pointer;
+.tiny {
+text-align:center;
+color:var(--muted);
+font-size:11px;
+margin-top:10px;
 }
 
-.quiz-box button:active {
-  background: #edcbd7;
+/* AWARDS */
+
+.awards {
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:12px;
+margin-top:25px;
 }
 
-#answer {
-  margin-top: 20px;
-  font-size: 13px;
+.award {
+background:#fff;
+border:1px solid #efdde2;
+border-radius:16px;
+padding:18px 12px;
+text-align:center;
+font-size:12px;
+font-weight:700;
+color:var(--berry);
+box-shadow:0 5px 16px #4b17290b;
+}
+
+.award span {
+display:block;
+font-size:23px;
+margin-bottom:7px;
+}
+
+/* QUIZ */
+
+.quizbox {
+max-width:620px;
+margin:auto;
+background:white;
+border:1px solid #eedde2;
+border-radius:25px;
+padding:28px 20px;
+text-align:center;
+box-shadow:0 14px 35px #4b17290d;
+}
+
+.quizbox h3 {
+font-size:30px;
+color:var(--wine);
+margin:8px 0 18px;
+}
+
+.answers {
+display:grid;
+gap:10px;
+}
+
+.answers button {
+border:1px solid #e8cbd4;
+background:#fff8fa;
+color:var(--berry);
+padding:14px;
+border-radius:14px;
+font-weight:600;
+cursor:pointer;
+}
+
+.answers button:active {background:var(--pink)}
+
+#quiz-result {
+min-height:25px;
+color:var(--berry);
+font-weight:700;
+font-size:13px;
+margin-top:15px;
+}
+
+/* SPOTIFY */
+
+.music-card,.voice-card {
+max-width:650px;
+margin:auto;
+background:#fff;
+border:1px solid #eedde2;
+border-radius:24px;
+padding:22px;
+box-shadow:0 14px 35px #4b17290d;
+}
+
+.music-top {
+display:flex;
+align-items:center;
+gap:16px;
+margin-bottom:18px;
+}
+
+.music-art {
+width:76px;
+height:76px;
+flex:0 0 76px;
+border-radius:17px;
+background:linear-gradient(145deg,#4b1729,#b65f7c);
+display:grid;
+place-items:center;
+color:#fff;
+font-family:"Playfair Display",serif;
+font-size:42px;
+box-shadow:0 8px 18px #4b17292b;
+}
+
+.music-top h3,.voice-card h3 {
+font-family:"Playfair Display",serif;
+color:var(--wine);
+font-size:25px;
+margin:5px 0;
+}
+
+.music-top p,.voice-card p {
+font-size:12px;
+color:var(--muted);
+line-height:1.7;
+margin:4px 0;
+}
+
+.spotify-frame {
+overflow:hidden;
+border-radius:13px;
+background:#181818;
+min-height:352px;
+}
+
+.spotify-frame iframe {
+display:block;
+border:0;
+border-radius:13px;
+width:100%;
+}
+
+/* VOICE MESSAGE */
+
+.voice-card {
+text-align:center;
+padding:30px 22px;
+}
+
+.voice-icon {
+font-size:42px;
+margin-bottom:12px;
+}
+
+.voice-card audio {
+width:100%;
+margin:18px 0 8px;
+accent-color:var(--berry);
+}
+
+.voice-card .tiny {font-size:10px}
+
+/* SECRET LETTER */
+
+.letter-wrap {text-align:center}
+
+.envelope {
+width:min(300px,85vw);
+height:190px;
+margin:25px auto;
+position:relative;
+background:#e8bdca;
+border-radius:10px;
+display:flex;
+align-items:center;
+justify-content:center;
+cursor:pointer;
+box-shadow:0 15px 30px #4b17291c;
+overflow:hidden;
+}
+
+.envelope:before {
+content:"";
+position:absolute;
+inset:0;
+background:
+linear-gradient(135deg,transparent 49.5%,#d89eaf 50%,transparent 50.5%),
+linear-gradient(225deg,transparent 49.5%,#d89eaf 50%,transparent 50.5%);
+}
+
+.envelope span {
+position:relative;
+z-index:1;
+background:var(--wine);
+color:white;
+width:48px;
+height:48px;
+border-radius:50%;
+display:grid;
+place-items:center;
+font-size:23px;
 }
 
 .letter {
-  max-width: 450px;
-  margin: 30px auto;
-  padding: 30px 20px;
-  background: #f5dce4;
-  color: #4a1728;
-  border-radius: 12px;
-  line-height: 2;
-  display: none;
-  font-size: 13px;
+display:none;
+text-align:left;
+max-width:650px;
+margin:20px auto;
+background:#fff;
+border:1px solid #eedde2;
+border-radius:20px;
+padding:25px;
+line-height:1.9;
+font-size:14px;
+color:#654c55;
+box-shadow:0 10px 28px #4b172910;
 }
+
+.letter.show {
+display:block;
+animation:rise .5s ease;
+}
+
+.letter strong {color:var(--wine)}
+
+/* FOOTER AND ANIMATIONS */
 
 footer {
-  padding: 35px 15px;
-  text-align: center;
-  font-family: 'Playfair Display', serif;
-  font-size: 19px;
-  color: #f2cbd7;
+text-align:center;
+padding:35px 20px 50px;
+color:var(--muted);
+font-size:11px;
+letter-spacing:.08em;
 }
 
-button {
-  font-family: inherit;
+footer b {color:var(--berry)}
+
+#confetti {
+position:fixed;
+inset:0;
+pointer-events:none;
+z-index:20;
+overflow:hidden;
 }
 
-@media(max-width:350px) {
-  .gallery { grid-template-columns: 1fr; }
+.confetto {
+position:absolute;
+top:-20px;
+font-size:20px;
+animation:fall 3.5s linear forwards;
 }
 
+@keyframes float {
+50% {transform:translateY(-16px) rotate(12deg)}
+}
+
+@keyframes rise {
+from {opacity:0;transform:translateY(15px)}
+to {opacity:1;transform:translateY(0)}
+}
+
+@keyframes fall {
+to {
+transform:translateY(110vh) rotate(540deg);
+opacity:0;
+}
+}
+
+@media(min-width:650px) {
+.gallery {
+grid-template-columns:repeat(3,minmax(0,1fr));
+gap:25px;
+}
+
+.polaroid img {height:220px}
+
+.awards {grid-template-columns:repeat(4,1fr)}
+
+section {padding:100px 0}
+}
+
+@media(prefers-reduced-motion:reduce) {
+*,*:before,*:after {
+scroll-behavior:auto!important;
+animation:none!important;
+transition:none!important;
+}
+}
 </style>
 </head>
 
 <body>
 
-<div class="hero" id="home">
+<div id="confetti"></div>
 
-  <span class="heart" style="top:15%;left:12%">♡</span>
-  <span class="heart" style="top:30%;right:12%;animation-delay:1s">✧</span>
-  <span class="heart" style="bottom:20%;left:20%;animation-delay:2s">♡</span>
+<!-- OPENING -->
 
-  <p class="eyebrow">A SPECIAL LITTLE SURPRISE</p>
+<header class="hero">
+<div class="hero-inner">
 
-  <h1>A Little<br><em>World</em><br>for Her ♡</h1>
+<div class="eyebrow">
+A SPECIAL LITTLE SURPRISE · 09 NOVEMBER 2026
+</div>
 
-  <p class="subtitle">MADE WITH LOVE · 09 NOVEMBER 2026</p>
+<h1>A Little<br><i>World</i> for Her ♡</h1>
 
-  <button class="enter" onclick="document.getElementById('welcome').scrollIntoView({behavior:'smooth'})">
-    ENTER YOUR WORLD ♡
-  </button>
+<p>made for one very particular human being.</p>
+
+<a class="btn" href="#welcome">ENTER, CHAMAN ♡</a>
+
+</div>
+</header>
+
+<main>
+
+<!-- CHAPTER 1: WELCOME -->
+
+<section id="welcome">
+
+<div class="section-head">
+
+<div class="chapter">CHAPTER 01 · THE MAIN CHARACTER</div>
+
+<h2>Okay, Saman.<br>It's your day!</h2>
+
+<p>
+Don't get too excited 🙄 but yes, I made you a whole website.
+You better appreciate the effort because I did not do all this
+for just anybody.
+</p>
 
 </div>
 
-<section class="light" id="welcome">
+<div class="note">
 
-  <p class="section-label">CHAPTER 01 · THE BEGINNING</p>
+<h3>Happy birthday, Chaman! ♡</h3>
 
-  <h2>It's your day!</h2>
+<p>
+Another year of you being you. Keep being your lovely, chaotic self.
+I hope this year brings you the kind of happiness that makes you
+forget to check your phone for once. (Okay, maybe that's asking too much.)
+</p>
 
-  <p class="description">
-    Somewhere on the internet, there's a little world
-    created especially for you.
-    Every little detail, every page and every surprise
-    is here to celebrate one very special girl.
-    <br><br>
-    And today, that girl is YOU. ♡
-  </p>
+</div>
+</section>
+
+<!-- CHAPTER 2: PHOTOS -->
+
+<section id="gallery">
+
+<div class="section-head">
+
+<div class="chapter">CHAPTER 02 · THE PHOTO DUMP</div>
+
+<h2>The Chaman Gallery 📸</h2>
+
+<p>
+Fourteen pictures. Because apparently one wasn't enough.
+A little collection of the girl we're celebrating today.
+</p>
+
+</div>
+
+<div class="gallery">
+
+<figure class="polaroid">
+<img src="IMG-20261103-WA0016.jpg" alt="Saman photo 1" loading="lazy">
+<figcaption class="caption">The main character ♡</figcaption>
+</figure>
+
+<figure class="polaroid">
+<img src="IMG-20261103-WA0015.jpg" alt="Saman photo 2" loading="lazy">
+<figcaption class="caption">Pretty little moment</figcaption>
+</figure>
+
+<figure class="polaroid">
+<img src="IMG-20261103-WA0014.jpg" alt="Saman photo 3" loading="lazy">
+<figcaption class="caption">Chaman being Chaman</figcaption>
+</figure>
+
+<figure class="polaroid">
+<img src="IMG-20261103-WA0012.jpg" alt="Saman photo 4" loading="lazy">
+<figcaption class="caption">A whole vibe ✨</figcaption>
+</figure>
+
+<figure class="polaroid">
+<img src="IMG-20261103-WA0011.jpg" alt="Saman photo 5" loading="lazy">
+<figcaption class="caption">Certified cutie</figcaption>
+</figure>
+
+<figure class="polaroid">
+<img src="IMG-20261103-WA0013.jpg" alt="Saman photo 6" loading="lazy">
+<figcaption class="caption">One for the memories</figcaption>
+</figure>
+
+<figure class="polaroid">
+<img src="IMG-20261103-WA0009.jpg" alt="Saman photo 7" loading="lazy">
+<figcaption class="caption">Miss photogenic</figcaption>
+</figure>
+
+<figure class="polaroid">
+<img src="IMG-20261103-WA0008.jpg" alt="Saman photo 8" loading="lazy">
+<figcaption class="caption">Pretty without trying</figcaption>
+</figure>
+
+<figure class="polaroid">
+<img src="IMG-20261103-WA0007.jpg" alt="Saman photo 9" loading="lazy">
+<figcaption class="caption">A little sunshine ☀</figcaption>
+</figure>
+
+<figure class="polaroid">
+<img src="IMG-20261103-WA0010.jpg" alt="Saman photo 10" loading="lazy">
+<figcaption class="caption">Another iconic appearance</figcaption>
+</figure>
+
+<figure class="polaroid">
+<img src="IMG-20261016-WA0041.jpg" alt="Saman photo 11" loading="lazy">
+<figcaption class="caption">This one's staying</figcaption>
+</figure>
+
+<figure class="polaroid">
+<img src="IMG-20261016-WA0038.jpg" alt="Saman photo 12" loading="lazy">
+<figcaption class="caption">Just Chaman things</figcaption>
+</figure>
+
+<figure class="polaroid">
+<img src="IMG-20261016-WA0030.jpg" alt="Saman photo 13" loading="lazy">
+<figcaption class="caption">A favourite human ♡</figcaption>
+</figure>
+
+<figure class="polaroid">
+<img src="IMG-20261016-WA0031.jpg" alt="Saman photo 14" loading="lazy">
+<figcaption class="caption">The birthday girl!</figcaption>
+</figure>
+
+</div>
+
+<p class="tiny">
+A tiny gallery for a not-so-tiny amount of love. ♡
+</p>
 
 </section>
 
-<section>
+<!-- CHAPTER 3: AWARDS -->
 
-  <p class="section-label">CHAPTER 02 · THE MAIN CHARACTER</p>
+<section id="awards">
 
-  <h2>The girl herself.</h2>
+<div class="section-head">
 
-  <p class="description">
-    A little collection of moments, memories
-    and pictures of the birthday girl.
-  </p>
+<div class="chapter">CHAPTER 03 · OFFICIAL AWARDS</div>
 
-  <div class="gallery">
+<h2>Chaman's achievements</h2>
 
-    <div class="photo">Your photo goes here ♡</div>
-    <div class="photo">A little sunshine ✧</div>
-    <div class="photo">Pretty little moments</div>
-    <div class="photo">The main character ♡</div>
+<p>
+These awards are extremely official. I made them up,
+so don't question the authority.
+</p>
 
-  </div>
+</div>
 
-</section>
+<div class="awards">
 
-<section class="light">
+<div class="award"><span>👑</span>CEO of being Chaman</div>
 
-  <p class="section-label">CHAPTER 03 · A LITTLE GAME</p>
+<div class="award"><span>✨</span>Professional icon</div>
 
-  <h2>Birthday Quiz!</h2>
+<div class="award"><span>💌</span>Certified favourite</div>
 
-  <p class="description">
-    Let's see how well you know yourself.
-  </p>
+<div class="award"><span>🏆</span>Most likely to annoy me and get away with it</div>
 
-  <div class="quiz-box">
-
-    <p>What's your birthday superpower?</p>
-
-    <button onclick="showAnswer('Obviously being iconic. No further explanation needed. ♡')">
-      Being iconic
-    </button>
-
-    <button onclick="showAnswer('Making everyone laugh without even trying!')">
-      Making people laugh
-    </button>
-
-    <button onclick="showAnswer('Being effortlessly unforgettable. ✧')">
-      Being unforgettable
-    </button>
-
-    <div id="answer"></div>
-
-  </div>
+</div>
 
 </section>
 
-<section>
+<!-- CHAPTER 4: QUIZ -->
 
-  <p class="section-label">CHAPTER 04 · A LITTLE SECRET</p>
+<section id="quiz">
 
-  <h2>You've got mail.</h2>
+<div class="section-head">
 
-  <p class="description">
-    Someone has written you a little something.
-  </p>
+<div class="chapter">CHAPTER 04 · VERY IMPORTANT TEST</div>
 
-  <br>
+<h2>Birthday Quiz!</h2>
 
-  <button class="enter" onclick="openLetter()">
-    OPEN YOUR LETTER 💌
-  </button>
+<p>
+Let's see if you know your own greatness.
+Choose wisely, Chaman.
+</p>
 
-  <div class="letter" id="letter">
-    Happy Birthday! ♡
+</div>
 
-    <br><br>
+<div class="quizbox">
 
-    You deserve all the happiness, beautiful
-    memories and wonderful surprises this world
-    has to offer.
+<div class="eyebrow">QUESTION 01 / 01</div>
 
-    <br><br>
+<h3>What's your birthday superpower?</h3>
 
-    May this new chapter of your life be filled
-    with laughter, growth and countless reasons
-    to smile.
+<div class="answers">
 
-    <br><br>
+<button onclick="answer('Correct. Being iconic is basically your full-time job. 😭')">
+Being iconic
+</button>
 
-    With lots of love. ♡
-  </div>
+<button onclick="answer('Also correct. You do have your moments, Chaman. 🙄')">
+Making people laugh
+</button>
+
+<button onclick="answer('Obviously. There was never any other answer. ♡')">
+Being unforgettable
+</button>
+
+</div>
+
+<div id="quiz-result" aria-live="polite"></div>
+
+</div>
 
 </section>
+
+<!-- CHAPTER 5: SPOTIFY -->
+
+<section id="music">
+
+<div class="section-head">
+
+<div class="chapter">CHAPTER 05 · THE SOUNDTRACK</div>
+
+<h2>Press play, Chaman. 🎧</h2>
+
+<p>
+A little playlist for the birthday girl.
+Consider this your personal soundtrack.
+</p>
+
+</div>
+
+<div class="music-card">
+
+<div class="music-top">
+
+<div class="music-art">♫</div>
+
+<div>
+
+<div class="eyebrow">A LITTLE PLAYLIST</div>
+
+<h3>Chaman's soundtrack ♡</h3>
+
+<p>songs that belong in your little world.</p>
+
+</div>
+
+</div>
+
+<div class="spotify-frame">
+
+<iframe
+title="Saman's Spotify playlist"
+src="https://open.spotify.com/embed/playlist/PASTE_PLAYLIST_ID_HERE?utm_source=generator"
+width="100%"
+height="352"
+allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+loading="lazy">
+</iframe>
+
+</div>
+
+<p class="tiny">
+Replace PASTE_PLAYLIST_ID_HERE with your Spotify playlist ID. ♡
+</p>
+
+</div>
+
+</section>
+
+<!-- CHAPTER 6: VOICE MESSAGE -->
+
+<section id="voice">
+
+<div class="section-head">
+
+<div class="chapter">CHAPTER 06 · A MESSAGE FROM ME</div>
+
+<h2>Okay, listen to this. 🎙️</h2>
+
+<p>
+Because some things are better said out loud.
+Tap play when you're ready.
+</p>
+
+</div>
+
+<div class="voice-card">
+
+<div class="voice-icon">🎧</div>
+
+<div class="eyebrow">A LITTLE VOICE NOTE</div>
+
+<h3>For you, Saman ♡</h3>
+
+<p>Recorded specially for the birthday girl. No skipping this one.</p>
+
+<audio controls preload="metadata">
+
+<source src="voice-message.mp3.m4a" type="audio/mp4">
+
+Your browser does not support audio playback.
+
+</audio>
+
+<p class="tiny">
+Your voice recording: voice-message.mp3.m4a
+</p>
+
+</div>
+
+</section>
+
+<!-- CHAPTER 7: SECRET LETTER -->
+
+<section id="letter">
+
+<div class="section-head">
+
+<div class="chapter">CHAPTER 07 · A LITTLE NOTE</div>
+
+<h2>You've got mail. 💌</h2>
+
+<p>
+There's something I wanted to say.
+Tap the envelope, birthday girl.
+</p>
+
+</div>
+
+<div class="letter-wrap">
+
+<button
+class="envelope"
+onclick="openLetter()"
+aria-label="Open the birthday letter">
+
+<span>♡</span>
+
+</button>
+
+<div class="tiny">TAP TO OPEN</div>
+
+<article class="letter" id="letter-text">
+
+<p>Okay Saman, jokes aside for a second.</p>
+
+<p>
+I'm genuinely glad I got to know you.
+Even if we're online friends, that doesn't make the friendship
+any less real. I hope you know how appreciated you are,
+and I hope you never feel like you have to change who you are
+to be liked.
+</p>
+
+<p>
+I hope this new year of your life is full of good people,
+peaceful days, unexpected happiness and memories you'll keep
+coming back to. May Allah bless you, protect you, make things
+easy for you and give you everything that's good for you. Ameen.
+</p>
+
+<p>
+Stay happy, stay safe, and please stay a little Chaman.
+It would be weird otherwise. 😭
+</p>
+
+<p>
+<strong>Happy birthday once again. Lots of love. ♡</strong>
+</p>
+
+</article>
+
+</div>
+
+</section>
+
+</main>
+
+<!-- FOOTER -->
 
 <footer>
-  Made with love, just for you. ♡
-  <br>
-  <small>09 · 11 · 2026</small>
+
+MADE WITH LOVE, A LITTLE TOO MUCH EFFORT, AND A LOT OF ♡
+
+<br><br>
+
+<b>09 · 11 · 2026</b>
+
 </footer>
 
 <script>
 
-function showAnswer(message) {
-  document.getElementById('answer').innerText = message;
+function answer(message) {
+
+document.getElementById('quiz-result').textContent=message;
+
+celebrate();
+
 }
 
 function openLetter() {
-  const letter = document.getElementById('letter');
-  letter.style.display = 'block';
-  letter.scrollIntoView({behavior:'smooth',block:'center'});
+
+document.getElementById('letter-text').classList.add('show');
+
+celebrate();
+
+}
+
+function celebrate() {
+
+const area=document.getElementById('confetti');
+
+const bits=['♡','✦','✧','💗','✨'];
+
+for(let i=0;i<32;i++) {
+
+const el=document.createElement('span');
+
+el.className='confetto';
+
+el.textContent=bits[Math.floor(Math.random()*bits.length)];
+
+el.style.left=Math.random()*100+'%';
+
+el.style.animationDelay=Math.random()*.8+'s';
+
+el.style.fontSize=(14+Math.random()*16)+'px';
+
+area.appendChild(el);
+
+setTimeout(()=>el.remove(),4500);
+
+}
+
 }
 
 </script>
