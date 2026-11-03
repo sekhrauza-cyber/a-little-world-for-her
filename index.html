@@ -1,1 +1,270 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Little World for Her ♡</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #4a1728;
+  color: #f9e9e9;
+  font-family: 'Poppins', sans-serif;
+  overflow-x: hidden;
+}
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 30px 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background: #a84f70;
+  filter: blur(110px);
+  opacity: .35;
+  border-radius: 50%;
+  top: 10%;
+  left: 5%;
+}
+
+.eyebrow {
+  letter-spacing: 5px;
+  font-size: 10px;
+  color: #eab8c9;
+  animation: fade 2s;
+}
+
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(45px, 12vw, 82px);
+  font-weight: 400;
+  line-height: 1.1;
+  margin: 25px 0;
+  animation: rise 1.5s ease;
+}
+
+h1 em {
+  color: #e6a6bd;
+}
+
+.subtitle {
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: #f0cbd6;
+  margin-bottom: 35px;
+}
+
+.enter {
+  background: #f4dce3;
+  color: #541c32;
+  border: none;
+  padding: 16px 35px;
+  border-radius: 40px;
+  font-size: 11px;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.enter:hover {
+  transform: scale(1.08);
+  background: white;
+}
+
+.heart {
+  position: absolute;
+  color: #edb4c8;
+  animation: float 6s infinite ease-in-out;
+  opacity: .6;
+  pointer-events: none;
+}
+
+@keyframes float {
+  0%,100% { transform: translateY(0) rotate(0); }
+  50% { transform: translateY(-30px) rotate(15deg); }
+}
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(35px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+section {
+  padding: 85px 22px;
+  text-align: center;
+}
+
+.light {
+  background: #f8e9e9;
+  color: #4a1728;
+}
+
+.section-label {
+  font-size: 10px;
+  letter-spacing: 4px;
+  color: #b56b85;
+  margin-bottom: 15px;
+}
+
+h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 42px;
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+
+.description {
+  font-size: 13px;
+  line-height: 2;
+  max-width: 450px;
+  margin: auto;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  max-width: 500px;
+  margin: 35px auto;
+}
+
+.photo {
+  background: #e7c3ce;
+  color: #67283e;
+  min-height: 190px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+  font-family: 'Playfair Display', serif;
+  font-size: 17px;
+  border: 8px solid white;
+  box-shadow: 0 5px 15px #4a172822;
+  transform: rotate(-2deg);
+}
+
+.photo:nth-child(even) {
+  transform: rotate(3deg);
+  margin-top: 25px;
+}
+
+.quiz-box {
+  max-width: 450px;
+  margin: 30px auto;
+  padding: 25px;
+  border: 1px solid #c98ca3;
+  border-radius: 15px;
+}
+
+.quiz-box p {
+  margin-bottom: 20px;
+  font-family: 'Playfair Display', serif;
+  font-size: 23px;
+}
+
+.quiz-box button {
+  display: block;
+  width: 100%;
+  padding: 13px;
+  margin: 10px 0;
+  border: 1px solid #d9a9b9;
+  background: transparent;
+  color: inherit;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+.quiz-box button:active {
+  background: #edcbd7;
+}
+
+#answer {
+  margin-top: 20px;
+  font-size: 13px;
+}
+
+.letter {
+  max-width: 450px;
+  margin: 30px auto;
+  padding: 30px 20px;
+  background: #f5dce4;
+  color: #4a1728;
+  border-radius: 12px;
+  line-height: 2;
+  display: none;
+  font-size: 13px;
+}
+
+footer {
+  padding: 35px 15px;
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 19px;
+  color: #f2cbd7;
+}
+
+button {
+  font-family: inherit;
+}
+
+@media(max-width:350px) {
+  .gallery { grid-template-columns: 1fr; }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="hero" id="home">
+
+  <span class="heart" style="top:15%;left:12%">♡</span>
+  <span class="heart" style="top:30%;right:12%;animation-delay:1s">✧</span>
+  <span class="heart" style="bottom:20%;left:20%;animation-delay:2s">♡</span>
+
+  <p class="eyebrow">A SPECIAL LITTLE SURPRISE</p>
+
+  <h1>A Little<br><em>World</em><br>for Her ♡</h1>
+
+  <p class="subtitle">MADE WITH LOVE · 09 NOVEMBER 2026</p>
+
+  <button class="enter" onclick="document.getElementById('welcome').scrollIntoView({behavior:'smooth'})">
+    ENTER YOUR WORLD ♡
+  </button>
+
+</div>
+
+<section class="light" id="welcome">
+
+  <p class="section-label">CHAPTER 01 · THE BEGINNING</p>
+
+  <h2>It's your day!</h2>
+
+  <p class="description">
+    Somewhere on the internet, there's a little world
+    created especially for you.
