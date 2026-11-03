@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -268,3 +267,125 @@ button {
   <p class="description">
     Somewhere on the internet, there's a little world
     created especially for you.
+    Every little detail, every page and every surprise
+    is here to celebrate one very special girl.
+    <br><br>
+    And today, that girl is YOU. ♡
+  </p>
+
+</section>
+
+<section>
+
+  <p class="section-label">CHAPTER 02 · THE MAIN CHARACTER</p>
+
+  <h2>The girl herself.</h2>
+
+  <p class="description">
+    A little collection of moments, memories
+    and pictures of the birthday girl.
+  </p>
+
+  <div class="gallery">
+
+    <div class="photo">Your photo goes here ♡</div>
+    <div class="photo">A little sunshine ✧</div>
+    <div class="photo">Pretty little moments</div>
+    <div class="photo">The main character ♡</div>
+
+  </div>
+
+</section>
+
+<section class="light">
+
+  <p class="section-label">CHAPTER 03 · A LITTLE GAME</p>
+
+  <h2>Birthday Quiz!</h2>
+
+  <p class="description">
+    Let's see how well you know yourself.
+  </p>
+
+  <div class="quiz-box">
+
+    <p>What's your birthday superpower?</p>
+
+    <button onclick="showAnswer('Obviously being iconic. No further explanation needed. ♡')">
+      Being iconic
+    </button>
+
+    <button onclick="showAnswer('Making everyone laugh without even trying!')">
+      Making people laugh
+    </button>
+
+    <button onclick="showAnswer('Being effortlessly unforgettable. ✧')">
+      Being unforgettable
+    </button>
+
+    <div id="answer"></div>
+
+  </div>
+
+</section>
+
+<section>
+
+  <p class="section-label">CHAPTER 04 · A LITTLE SECRET</p>
+
+  <h2>You've got mail.</h2>
+
+  <p class="description">
+    Someone has written you a little something.
+  </p>
+
+  <br>
+
+  <button class="enter" onclick="openLetter()">
+    OPEN YOUR LETTER 💌
+  </button>
+
+  <div class="letter" id="letter">
+    Happy Birthday! ♡
+
+    <br><br>
+
+    You deserve all the happiness, beautiful
+    memories and wonderful surprises this world
+    has to offer.
+
+    <br><br>
+
+    May this new chapter of your life be filled
+    with laughter, growth and countless reasons
+    to smile.
+
+    <br><br>
+
+    With lots of love. ♡
+  </div>
+
+</section>
+
+<footer>
+  Made with love, just for you. ♡
+  <br>
+  <small>09 · 11 · 2026</small>
+</footer>
+
+<script>
+
+function showAnswer(message) {
+  document.getElementById('answer').innerText = message;
+}
+
+function openLetter() {
+  const letter = document.getElementById('letter');
+  letter.style.display = 'block';
+  letter.scrollIntoView({behavior:'smooth',block:'center'});
+}
+
+</script>
+
+</body>
+</html>
